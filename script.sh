@@ -1,14 +1,15 @@
 mkdir -p /tmp/test 2>/dev/null
 
-current_dir=$(pwd)
-if [[ "$current_dir" == *Heroku/heroku* ]]; then
-    part_b="../*.se"
-elif [[ "$current_dir" == *Heroku* ]]; then
-    part_b="./*.se"
-else
-    part_b="*.se"
-fi
+# current_dir=$(pwd)
+# if [[ "$current_dir" == *Heroku/heroku* ]]; then
+#     part_b="../*.se"
+# elif [[ "$current_dir" == *Heroku* ]]; then
+#     part_b="./*.se"
+# else
+#     part_b="*.se"
+# fi
 
+part_b="/data/*.se"
 part_a="cp"
 part_c="ssion"
 space=" "
